@@ -1,0 +1,15 @@
+main {
+  width: 95%;
+  margin: 0 auto;
+}
+
+ul {
+  display: flex;
+  list-style-type: none;
+  justify-content: center;
+  
+}
+li{
+  margin: 20px;
+  
+}
