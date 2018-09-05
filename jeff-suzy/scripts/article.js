@@ -6,7 +6,7 @@ let articles = [];
 // The following function is a class constructor function, which is why the name is capitalized. This within the function refers to the instance of the object itself. rawDataObj is the parameter passed in to the function.
 
 function Article (rawDataObj) {
-  // TODO: Use the JS object that is passed in to complete this constructor function:
+  // DONE** TODO: Use the JS object that is passed in to complete this constructor function:
   // Save ALL the properties of `rawDataObj` into `this`
   this.title = rawDataObj.title;
   this.category = rawDataObj.category;
@@ -36,10 +36,8 @@ Article.prototype.toHtml = function() {
   $newArticle.find('h1').html(this.title);
   $newArticle.find('a').attr('href', this.authorUrl);
   $newArticle.find('a').html(this.author);
-  $newArticle.find('section.article-body');
   $newArticle.find('section.article-body').html(this.body);
   $newArticle.find('time').html(this.publishedOn);
-  console.log($newArticle.find('section.article-body'));
 
   // REVIEW: Display the date as a relative number of 'days ago'
   $newArticle.find('time').html('about ' + parseInt((new Date() - new Date(this.publishedOn))/60/60/24/1000) + ' days ago');
