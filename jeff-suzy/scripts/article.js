@@ -2,7 +2,7 @@
 
 let articles = [];
 
-// COMMENT: What is the purpose of the following function? Why is its name capitalized? Explain the context of "this" within the function. What does "rawDataObj" represent?
+// DONE** COMMENT: What is the purpose of the following function? Why is its name capitalized? Explain the context of "this" within the function. What does "rawDataObj" represent?
 // The following function is a class constructor function, which is why the name is capitalized. This within the function refers to the instance of the object itself. rawDataObj is the parameter passed in to the function.
 
 function Article (rawDataObj) {
@@ -34,17 +34,19 @@ Article.prototype.toHtml = function() {
       3. article title,
       4. article body, and
       5. publication date. */
-  $newArticle.find('h1').text(this.title);
+  $newArticle.find('h1').html(this.title);
   $newArticle.find('a').attr('href', this.authorUrl);
-  $newArticle.find('a').text(this.author);
+  $newArticle.find('a').html(this.author);
   $newArticle.find('section.article-body');
-  $newArticle.find('section.article-body').text(this.body);
-  $newArticle.find('time').text(this.publishedOn);
+  $newArticle.find('section.article-body').html(this.body);
+  $newArticle.find('time').html(this.publishedOn);
   console.log($newArticle.find('section.article-body'));
 
   // REVIEW: Display the date as a relative number of 'days ago'
   $newArticle.find('time').html('about ' + parseInt((new Date() - new Date(this.publishedOn))/60/60/24/1000) + ' days ago');
   $newArticle.append('<hr>');
+
+  $newArticle.toggleClass('template');
   return $newArticle;
 };
 
