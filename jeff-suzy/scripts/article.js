@@ -8,11 +8,18 @@ let articles = [];
 function Article (rawDataObj) {
   // TODO: Use the JS object that is passed in to complete this constructor function:
   // Save ALL the properties of `rawDataObj` into `this`
+  this.title = rawDataObj.title;
+  this.category = rawDataObj.category;
+  this.author = rawDataObj.author;
+  this.authorUrl = rawDataObj.authorUrl;
+  this.publishedOn = rawDataObj.publishedOn;
+  this.body = rawDataObj.body;
+  articles.push(this);
 }
 
 Article.prototype.toHtml = function() {
-  // COMMENT: What is the benefit of cloning the article? (see the jQuery docs)
-  // PUT YOUR RESPONSE HERE
+  // DONE** COMMENT: What is the benefit of cloning the article? (see the jQuery docs)
+  // .clone() in jQuery creates a deep copy of the matched elements, meaning that it not only copies the matched element, but also their descendant elements and text nodes.
 
   let $newArticle = $('article.template').clone();
   /* TODO: This cloned article still has a class of template. In our modules.css stylesheet, we should give all elements with a class of template a display of none so that our template does not display in the browser. But, we also need to make sure we're not accidentally hiding our cloned article. */
@@ -27,6 +34,13 @@ Article.prototype.toHtml = function() {
       3. article title,
       4. article body, and
       5. publication date. */
+  $newArticle.find('h1').text(this.title);
+  $newArticle.find('a').attr('href', this.authorUrl);
+  $newArticle.find('a').text(this.author);
+  $newArticle.find('section.article-body');
+  $newArticle.find('section.article-body').text(this.body);
+  $newArticle.find('time').text(this.publishedOn);
+  console.log($newArticle.find('section.article-body'));
 
   // REVIEW: Display the date as a relative number of 'days ago'
   $newArticle.find('time').html('about ' + parseInt((new Date() - new Date(this.publishedOn))/60/60/24/1000) + ' days ago');

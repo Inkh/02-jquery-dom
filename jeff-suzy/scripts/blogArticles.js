@@ -1,6 +1,6 @@
 'use strict';
 
-// COMMENT: How is this data utilized within our blog app? What is the structure of this data (your response should include the terms "object", "array", and "key/value pairs")?
+// DONE** COMMENT: How is this data utilized within our blog app? What is the structure of this data (your response should include the terms "object", "array", and "key/value pairs")?
 // This data is being utilized inside the Article class constructor function to create an object. The data type is an array, which consists of objects that include fields(key/value pairs) with title, category, author, authorURL, publishedOn, and body(text).
 
 let rawData = [
